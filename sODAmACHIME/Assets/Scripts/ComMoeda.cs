@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ComMoedaa : StateMachineBehaviour
+public class ComMoeda : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -8,21 +8,15 @@ public class ComMoedaa : StateMachineBehaviour
         maquina.estadoAtual = "ComMoeda";
 
         maquina.painelOK.SetActive(true);
+        maquina.painelEmpty.SetActive(false);
+        maquina.portaAberta.SetActive(false);
+
         Debug.Log("Estado: Com Moeda");
     }
 
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         var maquina = animator.GetComponent<MaquinaContext>();
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            animator.SetTrigger("ToVenda");
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            animator.SetTrigger("ToSemMoeda");
-        }
+        maquina.painelOK.SetActive(false);
     }
 }

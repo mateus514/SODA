@@ -1339,6 +1339,8 @@ MonoBehaviour:
   textoEstoque: {fileID: 1054359843}
   estoque: 3
   estadoAtual: 
+  lataPrefab: {fileID: 0}
+  posicaoSaida: {fileID: 0}
 --- !u!1 &1435078673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1994647833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2180,8 +2182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.235895, y: -9.4457}
-  m_SizeDelta: {x: 180.9169, y: 285.1115}
+  m_AnchoredPosition: {x: -20.6274, y: -5.0601}
+  m_SizeDelta: {x: 195.9925, y: 293.8827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994647834
 MonoBehaviour:
