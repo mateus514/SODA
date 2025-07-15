@@ -1036,7 +1036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1381019392}
-  contexto: {fileID: 1381019395}
 --- !u!4 &1018016212
 Transform:
   m_ObjectHideFlags: 0
@@ -1370,6 +1369,7 @@ MonoBehaviour:
   portaAberta: {fileID: 1994647832}
   textoEstoque: {fileID: 1054359843}
   estoque: 3
+  estoqueMaximo: 3
   estadoAtual: 
   lataPrefab: {fileID: 6995599106005937578, guid: b8fa99e04c53f3f4b9270753cd92c235, type: 3}
   posicaoSaida: {fileID: 1308772686}
