@@ -11,6 +11,6 @@ public class SemRefrigerante : StateMachineBehaviour
         maquina.painelOK.SetActive(false);
         maquina.portaAberta.SetActive(false);
 
-        Debug.Log("Estado: Sem Refrigerante");
+        Debug.LogWarning("⚠️ Máquina vazia!");
     }
 }

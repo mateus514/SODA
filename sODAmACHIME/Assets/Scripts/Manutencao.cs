@@ -6,17 +6,28 @@ public class Manutencao : StateMachineBehaviour
     {
         var maquina = animator.GetComponent<MaquinaContext>();
         maquina.estadoAtual = "Manutencao";
-
-        maquina.painelOK.SetActive(false);
-        maquina.painelEmpty.SetActive(false);
         maquina.portaAberta.SetActive(true);
-
-        Debug.Log("Entrou no estado Manutenção");
+        maquina.painelEmpty.SetActive(false);
+        maquina.painelOK.SetActive(false);
     }
-    
-    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         var maquina = animator.GetComponent<MaquinaContext>();
-        maquina.portaAberta.SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.C)) // Aqui poderia ser um flag ou chamada que sinaliza o cancelamento
+        {
+            animator.ResetTrigger("Cancelar"); // Limpa trigger, se existir
+            animator.Play("SemMoeda"); // Força o estado SemMoeda sem transição
+        }
+
+        if (maquina.estoque < maquina.estoqueMaximo)
+        {
+            maquina.AdicionarLata();
+        }
+        else
+        {
+            Debug.LogWarning("⚠ Estoque máximo atingido!");
+        }
     }
 }

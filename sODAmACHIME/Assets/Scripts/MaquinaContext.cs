@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class MaquinaContext : MonoBehaviour
 {
     public Animator animator;
@@ -14,6 +13,7 @@ public class MaquinaContext : MonoBehaviour
 
     [Header("Dados da Máquina")]
     public int estoque = 3;
+    public int estoqueMaximo = 3; // Novo campo: limite máximo permitido
     [HideInInspector] public string estadoAtual = "";
 
     [Header("Prefab e Posição")]
@@ -23,10 +23,18 @@ public class MaquinaContext : MonoBehaviour
     // Método para adicionar lata (usado no modo manutenção)
     public void AdicionarLata()
     {
-        estoque++;
-        AtualizarTextoEstoque();
+        if (estoque < estoqueMaximo)
+        {
+            estoque++;
+            AtualizarTextoEstoque();
+            Debug.Log("Lata adicionada. Estoque atual: " + estoque);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Estoque já está no máximo! (" + estoqueMaximo + ")");
+        }
     }
-    
+
     // Atualiza o texto do estoque (usar após vender ou recarregar)
     public void AtualizarTextoEstoque()
     {

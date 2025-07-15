@@ -2,36 +2,30 @@ using UnityEngine;
 
 public class Venda : StateMachineBehaviour
 {
-    private float timer = 0f;
     private bool vendeu = false;
+    private float timer = 0f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         var maquina = animator.GetComponent<MaquinaContext>();
         maquina.estadoAtual = "Venda";
-
-        maquina.painelOK.SetActive(false);
-        maquina.painelEmpty.SetActive(false);
-        maquina.portaAberta.SetActive(false);
-
-        maquina.SoltarLata(); // chama a latinha para sair
-
-        timer = 0f;
         vendeu = false;
+        timer = 0f;
 
-        Debug.Log("Estado: Venda. Dispensando refrigerante...");
+        maquina.SoltarLata();
+        Debug.Log("Vendendo refrigerante...");
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer += Time.deltaTime;
-
-        if (timer > 2f && !vendeu)
+        if (!vendeu && timer > 2f)
         {
             vendeu = true;
+
             var maquina = animator.GetComponent<MaquinaContext>();
 
-            if (maquina.estoque <= 0)
+            if (maquina.estoque == 0)
                 animator.SetTrigger("ToSemRefrigerante");
             else
                 animator.SetTrigger("ToSemMoeda");

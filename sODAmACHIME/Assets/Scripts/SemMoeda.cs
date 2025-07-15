@@ -7,12 +7,10 @@ public class SemMoeda : StateMachineBehaviour
         var maquina = animator.GetComponent<MaquinaContext>();
         maquina.estadoAtual = "SemMoeda";
 
-        maquina.painelEmpty.SetActive(false);
         maquina.painelOK.SetActive(false);
+        maquina.painelEmpty.SetActive(false);
         maquina.portaAberta.SetActive(false);
 
-        maquina.AtualizarTextoEstoque();
-
-        Debug.Log("Estado: Sem Moeda");
+        Debug.Log("Aguardando moeda...");
     }
 }
