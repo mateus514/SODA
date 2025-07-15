@@ -10,14 +10,16 @@ public class Venda : StateMachineBehaviour
         var maquina = animator.GetComponent<MaquinaContext>();
         maquina.estadoAtual = "Venda";
 
-        Debug.Log("Estado: Venda. Dispensando refrigerante...");
-        vendeu = false;
-        timer = 0f;
-
         maquina.painelOK.SetActive(false);
+        maquina.painelEmpty.SetActive(false);
+        maquina.portaAberta.SetActive(false);
 
-        // Solta a lata e já atualiza o estoque
-        maquina.SoltarLata();
+        maquina.SoltarLata(); // chama a latinha para sair
+
+        timer = 0f;
+        vendeu = false;
+
+        Debug.Log("Estado: Venda. Dispensando refrigerante...");
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -27,7 +29,6 @@ public class Venda : StateMachineBehaviour
         if (timer > 2f && !vendeu)
         {
             vendeu = true;
-
             var maquina = animator.GetComponent<MaquinaContext>();
 
             if (maquina.estoque <= 0)

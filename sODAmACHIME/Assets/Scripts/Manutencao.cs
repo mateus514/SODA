@@ -11,9 +11,12 @@ public class Manutencao : StateMachineBehaviour
         maquina.painelEmpty.SetActive(false);
         maquina.portaAberta.SetActive(true);
 
-        Debug.Log("Estado: Manutenção");
+        Debug.Log("Entrou no estado Manutenção");
     }
-
-    // Não faça mudanças de estado automáticas aqui!
-    // Deixe a saída do estado controlada pelo botão.
+    
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        var maquina = animator.GetComponent<MaquinaContext>();
+        maquina.portaAberta.SetActive(false);
+    }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
-class SemRefrigerantee : StateMachineBehaviour
+
+public class SemRefrigerante : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -7,14 +8,9 @@ class SemRefrigerantee : StateMachineBehaviour
         maquina.estadoAtual = "SemRefrigerante";
 
         maquina.painelEmpty.SetActive(true);
-        Debug.Log("Máquina está vazia!");
-    }
+        maquina.painelOK.SetActive(false);
+        maquina.portaAberta.SetActive(false);
 
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            animator.SetTrigger("ToManutencao");
-        }
+        Debug.Log("Estado: Sem Refrigerante");
     }
 }

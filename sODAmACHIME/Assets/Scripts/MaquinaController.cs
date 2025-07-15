@@ -20,17 +20,13 @@ public class MaquinaController : MonoBehaviour
         }
     }
 
- public void Cancelar()
- {
-     if (contexto.estadoAtual == "ComMoeda")
-     {
-         animator.SetTrigger("ToSemMoeda");
-     }
-     else if (contexto.estadoAtual == "Manutencao")
-     {
-         animator.SetTrigger("ToSemMoeda");  // Sair da manutenção
-     }
- }
+    public void Cancelar()
+    {
+        if (contexto.estadoAtual == "ComMoeda" || contexto.estadoAtual == "Manutencao")
+        {
+            animator.SetTrigger("ToSemMoeda");  // Sair da manutenção ou cancelar compra
+        }
+    }
 
     public void Comprar()
     {
@@ -40,8 +36,10 @@ public class MaquinaController : MonoBehaviour
 
     public void Manutencao()
     {
-        if (contexto.estadoAtual == "SemMoeda")
+        if (contexto.estadoAtual == "SemMoeda" || contexto.estadoAtual == "SemRefrigerante")
+        {
             animator.SetTrigger("ToManutencao");
+            Debug.Log("Cliquei no botão MANUTENÇÃO");
+        }
     }
-    
 }

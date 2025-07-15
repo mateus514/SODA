@@ -1036,6 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1381019392}
+  contexto: {fileID: 1381019395}
 --- !u!4 &1018016212
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,6 +1210,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1308772685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308772686}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308772686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308772685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.48, y: -3.3, z: 0.0021126713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1381019390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,8 +1345,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381019390}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44, y: -0.3373055, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.44000244, y: -0.3373108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1339,8 +1371,8 @@ MonoBehaviour:
   textoEstoque: {fileID: 1054359843}
   estoque: 3
   estadoAtual: 
-  lataPrefab: {fileID: 0}
-  posicaoSaida: {fileID: 0}
+  lataPrefab: {fileID: 6995599106005937578, guid: b8fa99e04c53f3f4b9270753cd92c235, type: 3}
+  posicaoSaida: {fileID: 1308772686}
 --- !u!1 &1435078673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,7 +2197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1994647833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2369,3 +2401,4 @@ SceneRoots:
   - {fileID: 1090967003}
   - {fileID: 1381019394}
   - {fileID: 1018016212}
+  - {fileID: 1308772686}

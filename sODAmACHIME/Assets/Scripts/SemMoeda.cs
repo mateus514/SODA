@@ -11,6 +11,8 @@ public class SemMoeda : StateMachineBehaviour
         maquina.painelOK.SetActive(false);
         maquina.portaAberta.SetActive(false);
 
+        maquina.AtualizarTextoEstoque();
+
         Debug.Log("Estado: Sem Moeda");
     }
 }
