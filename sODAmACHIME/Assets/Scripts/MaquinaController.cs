@@ -3,6 +3,7 @@ using UnityEngine;
 public class MaquinaController : MonoBehaviour
 {
     public Animator animator;
+    public MaquinaContext maquinaContext;
 
     public void InserirMoeda()
     {

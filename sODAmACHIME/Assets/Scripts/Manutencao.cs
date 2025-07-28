@@ -9,25 +9,32 @@ public class Manutencao : StateMachineBehaviour
         maquina.portaAberta.SetActive(true);
         maquina.painelEmpty.SetActive(false);
         maquina.painelOK.SetActive(false);
+        Debug.Log("Modo manutenção ativado. Porta aberta.");
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         var maquina = animator.GetComponent<MaquinaContext>();
-
-        if (Input.GetKeyDown(KeyCode.C)) // Aqui poderia ser um flag ou chamada que sinaliza o cancelamento
+        
+        // Se recebeu ToComMoeda (botão Inserir), adiciona lata
+        if (animator.GetBool("ToComMoeda"))
         {
-            animator.ResetTrigger("Cancelar"); // Limpa trigger, se existir
-            animator.Play("SemMoeda"); // Força o estado SemMoeda sem transição
-        }
-
-        if (maquina.estoque < maquina.estoqueMaximo)
-        {
+            animator.ResetTrigger("ToComMoeda");
             maquina.AdicionarLata();
         }
-        else
+        
+        // Se recebeu ToSemMoeda (botão Cancelar), vai para SemRefrigerante
+        if (animator.GetBool("ToSemMoeda"))
         {
-            Debug.LogWarning("⚠ Estoque máximo atingido!");
+            animator.ResetTrigger("ToSemMoeda");
+            animator.SetTrigger("ToSemRefrigerante");
         }
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        var maquina = animator.GetComponent<MaquinaContext>();
+        maquina.portaAberta.SetActive(false);
+        Debug.Log("Saindo do modo manutenção. Porta fechada.");
     }
 }

@@ -6,12 +6,20 @@ public class ComMoeda : StateMachineBehaviour
     {
         var maquina = animator.GetComponent<MaquinaContext>();
         maquina.estadoAtual = "ComMoeda";
-
         maquina.painelOK.SetActive(true);
         maquina.painelEmpty.SetActive(false);
         maquina.portaAberta.SetActive(false);
-
         Debug.Log("Com moeda. Pronto para comprar.");
+    }
+
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Se recebeu Cancelar, volta para SemMoeda
+        if (animator.GetBool("Cancelar"))
+        {
+            animator.ResetTrigger("Cancelar");
+            animator.SetTrigger("ToSemMoeda");
+        }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
